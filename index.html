@@ -95,10 +95,15 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
 .tl-org{font-family:'Noto Serif',Georgia,serif;font-size:.9375rem;font-weight:700;color:#2d3339;margin-bottom:2px;letter-spacing:-.01em}
 .tl-role{font-size:.75rem;color:#596066}
 @media(max-width:767px){
+  /* Timeline — vertical op mobiel, geen horizontale lijn */
   .tl-wrap{grid-template-columns:1fr;gap:0}
   .tl-wrap::before{display:none}
-  .tl-item{padding:0 0 0 32px;padding-top:0;position:relative;margin-bottom:24px}
-  .tl-dot{position:absolute;left:0;top:3px;margin-bottom:0}
+  .tl-wrap::after{display:none}
+  .tl-item{padding:0 0 0 28px;padding-top:0;position:relative;margin-bottom:28px}
+  .tl-item:last-child{margin-bottom:0}
+  .tl-dot{position:absolute;left:0;top:2px;margin-bottom:0}
+  /* Vertical connector between dots */
+  .tl-item:not(:last-child)::after{content:'';position:absolute;left:4px;top:14px;width:1px;bottom:-28px;background:linear-gradient(to bottom,rgba(63,96,138,.3),transparent)}
 }
 
 /* ── Aanpak scroll section ── */
@@ -116,12 +121,80 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
 .ap-step.is-passed .ap-step-title{color:rgba(45,51,57,.45)}
 .aanpak-dot-label{font-size:.5875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:color .4s}
 @media(max-width:1023px){
+  /* Aanpak — geen sticky scroll, alles uitgevouwen */
   #aanpak-zone{height:auto!important}
-  #aanpak-sticky{position:relative;top:auto;height:auto;padding:80px 0;display:block}
+  #aanpak-sticky{position:relative;top:auto;height:auto;padding:56px 0;display:block}
   .ap-step.is-active .ap-step-title{font-size:1.1875rem}
   .ap-step .ap-step-title{color:#2d3339}
   .ap-step .ap-step-num{color:#3f608a}
-  .ap-step .ap-step-body{max-height:none;opacity:1;margin-top:10px}
+  .ap-step .ap-step-body{max-height:none!important;opacity:1!important;margin-top:10px!important}
+  /* Aanpak — hide progress bar on mobile, show simple list */
+  #aanpak-progress{display:none}
+}
+
+@media(max-width:767px){
+  /* === GENERAL === */
+  body{overflow-x:hidden}
+
+  /* === HERO === */
+  #home{padding-top:68px}
+  #home .py-16{padding-top:28px!important;padding-bottom:36px!important}
+  #home .lg\:col-span-7{order:1}
+  #home .lg\:col-span-5{order:0;margin-bottom:16px}
+  #home .lg\:col-span-5 > div{max-width:100%}
+  #home [style*="aspect-ratio:3/4"]{aspect-ratio:16/10!important}
+  #home .absolute.cs{display:none!important}
+  /* Hero headline smaller on mobile */
+  #home h1{font-size:2.2rem!important;line-height:1.08!important}
+  #home p{font-size:.9375rem!important}
+  /* Stack CTAs full width */
+  #home .flex.flex-col a{width:100%;text-align:center;justify-content:center}
+
+  /* === MANIFESTO === */
+  #home + section{padding:52px 0!important}
+  #home + section p.display{font-size:1.125rem!important;line-height:1.6!important}
+
+  /* === WIE IK BEN === */
+  #wie-ik-ben{padding-top:64px!important;padding-bottom:0!important}
+  #wie-ik-ben .grid{gap:32px!important}
+
+  /* === SPEAKING PHOTO === */
+  #wie-ik-ben + div,[style*="height:420px"]{height:260px!important;margin-top:48px!important}
+
+  /* === DIENSTEN === */
+  #diensten{padding:64px 0!important}
+  .srv-card{padding:24px!important;transform:none!important;opacity:1!important}
+  .srv-card:hover,.srv-card.is-selected{transform:none!important;box-shadow:none!important;background:rgba(255,255,255,.11)!important}
+  .srv-card:not(.is-selected):not(:hover){opacity:1!important}
+  .srv-item-desc{font-size:.8125rem!important}
+
+  /* === AANPAK === */
+  #aanpak-progress{display:none!important}
+  #aanpak-sticky{padding:56px 0!important}
+  #aanpak-sticky > div > div{display:block!important}
+  #aanpak-sticky > div > div > div:first-child{margin-bottom:32px}
+  .ap-step{padding:16px 0!important}
+  .ap-step-title{font-size:1rem!important}
+  .ap-step-body{font-size:.875rem!important}
+
+  /* === INTERIM === */
+  #interim{padding:64px 0!important}
+  #interim .grid.grid-cols-1{gap:28px!important}
+
+  /* === KLANTEN === */
+  #klanten{padding:56px 0!important}
+  #klanten-grid-wrap.open{max-height:1400px!important}
+
+  /* === CONTACT === */
+  #contact{padding:64px 0!important}
+  #contact .grid{gap:16px!important}
+
+  /* === FOOTER === */
+  footer{padding:40px 0 24px!important}
+
+  /* === FLOATING BTN === */
+  #float-btn{bottom:18px;right:14px;padding:11px 16px;gap:8px}
+  #float-btn .fb-label{max-width:0!important;overflow:hidden;padding:0!important;width:0}
 }
 
 /* ── Klanten reveal ── */
@@ -210,7 +283,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
         <div style="position:relative;">
           <div style="position:absolute;top:-20px;right:-20px;left:20px;bottom:20px;background:linear-gradient(135deg,#3f608a,#28456e);opacity:.06;border-radius:2px;"></div>
           <div style="position:relative;overflow:hidden;border-radius:2px;aspect-ratio:3/4;background:#dde3ea;" class="es">
-            <img src="EvaHuizingPhotography_BVPA-231 (1) (1).jpg" alt="Marco Kortleve" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;"/>
+            <img src="hero.jpg" alt="Marco Kortleve" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;"/>
             <div style="position:absolute;inset-x:0;bottom:0;height:40%;background:linear-gradient(to top,rgba(14,26,39,.5),transparent);"></div>
             <div style="position:absolute;bottom:0;left:0;right:0;padding:24px;">
               <div style="font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.92);">Marco Kortleve</div>
@@ -311,7 +384,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
 
   <!-- Speaking photo — full bleed -->
   <div class="rv-scale" style="margin-top:72px;position:relative;height:420px;overflow:hidden;">
-    <img src="Foto Marco.jpg" alt="Marco Kortleve spreekt op BVPA-evenement"
+    <img src="marco-spreker.jpg" alt="Marco Kortleve spreekt op BVPA-evenement"
          style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;"/>
     <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(14,26,39,.55) 0%,rgba(14,26,39,.1) 60%,transparent 100%);"></div>
     <div style="position:absolute;inset:0;display:flex;align-items:center;">
