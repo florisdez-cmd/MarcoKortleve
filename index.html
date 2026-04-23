@@ -72,7 +72,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
 #overlay{position:fixed;inset:0;z-index:199;background:rgba(14,26,39,.38);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .3s}
 #overlay.open{opacity:1;pointer-events:auto}
 
-/* ── Timeline (Wie ik ben) ── */
+/* ── Timeline (Over mij) ── */
 .tl-wrap{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:8px}
 .tl-wrap::before{content:'';position:absolute;top:5px;left:5px;right:5px;height:0;border-top:1px dashed rgba(172,179,185,.25);z-index:0}
 .tl-wrap::after{content:'';position:absolute;top:4px;left:5px;width:0;height:2px;background:linear-gradient(to right,#3f608a 0%,#5c8fc4 55%,rgba(63,96,138,.3) 100%);box-shadow:0 0 12px rgba(63,96,138,.25);z-index:1;transition:width 1.9s cubic-bezier(.4,0,.2,1) .3s}
@@ -216,6 +216,10 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
 .rv-d4{transition-delay:.46s}
 .rv-d5{transition-delay:.58s}
 
+/* ── Auto-hide nav ── */
+#topnav{transition:background .3s,transform .35s cubic-bezier(.4,0,.2,1)}
+#topnav.nav-hidden{transform:translateY(-100%)}
+
 /* ── Floating contact button ── */
 #float-btn{position:fixed;bottom:28px;right:28px;z-index:90;display:flex;align-items:center;gap:10px;padding:13px 20px;background:linear-gradient(135deg,#3f608a,#28456e);color:#fff;font-size:.8125rem;font-weight:700;border-radius:28px;box-shadow:0 8px 28px rgba(63,96,138,.4);text-decoration:none;transition:transform .2s,box-shadow .2s;white-space:nowrap}
 #float-btn:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(63,96,138,.5)}
@@ -233,7 +237,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
       <span style="font-size:.59rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#3f608a;margin-top:2px;">Public Affairs Advisor</span>
     </a>
     <div class="hidden md:flex items-center gap-7">
-      <a href="#wie-ik-ben" class="nav-link">Wie ik ben</a>
+      <a href="#wie-ik-ben" class="nav-link">Over mij</a>
       <a href="#diensten"   class="nav-link">Diensten</a>
       <a href="#aanpak"     class="nav-link">Aanpak</a>
       <a href="#interim"    class="nav-link">Interim</a>
@@ -260,8 +264,8 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
 
       <!-- Text -->
       <div class="lg:col-span-7 space-y-7">
-        <div class="eyebrow"><span class="eyebrow-line"></span>Public Affairs · Den Haag</div>
-        <h1 class="display font-bold text-[2.4rem] sm:text-[3.2rem] md:text-[3.8rem] lg:text-[4.25rem] text-on-surface leading-[1.06]">
+        <div class="eyebrow"><span class="eyebrow-line"></span>Public Affairs · Communicatie · Stakeholder Management</div>
+        <h1 class="display font-bold text-[2.4rem] sm:text-[3rem] md:text-[3.4rem] lg:text-[3.6rem] text-on-surface leading-[1.06]">
           Het juiste verhaal,<br/>op het juiste moment,<br/>bij het juiste publiek.
         </h1>
         <p class="text-[1.0625rem] md:text-[1.125rem] text-on-surface-variant font-light leading-[1.75] max-w-[42rem]">
@@ -293,8 +297,8 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
           <div class="absolute cs hidden lg:flex items-center gap-3 bg-white px-4 py-3" style="top:9%;left:-32px;border-radius:2px;">
             <span class="material-symbols-outlined text-primary" style="font-size:18px;">verified</span>
             <div>
-              <div style="font-size:.6375rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#2d3339;">BVPA Gecertificeerd</div>
-              <div style="font-size:.5875rem;color:#596066;margin-top:1px;">Beroepsvereniging PA</div>
+              <div style="font-size:.6375rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#2d3339;">Lid van de BVPA</div>
+              <div style="font-size:.5875rem;color:#596066;margin-top:1px;">Beroepsvereniging voor Public Affairs</div>
             </div>
           </div>
         </div>
@@ -310,7 +314,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
   <div class="max-w-4xl mx-auto px-6 md:px-10 text-center">
     <p class="display font-semibold text-[1.375rem] md:text-[1.6rem] text-on-surface leading-[1.55] rv">
       U staat voor nieuwe kansen of een complexe crisissituatie. Ik ondersteun u met een geïntegreerde aanpak van
-      <span style="color:#3f608a;">Public Affairs</span>,
+      <span style="color:#3f608a;">public affairs</span>,
       <span style="color:#3f608a;">communicatie</span> en
       <span style="color:#3f608a;">stakeholder management</span>.
     </p>
@@ -332,7 +336,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
       <div class="lg:col-span-5 space-y-8">
         <div class="space-y-3 rv">
           <div class="sec-label">Expertise &amp; Historie</div>
-          <h2 class="display font-bold text-[2.4rem] md:text-[2.8rem] text-on-surface leading-tight">Wie ik ben</h2>
+          <h2 class="display font-bold text-[2.4rem] md:text-[2.8rem] text-on-surface leading-tight">Over mij</h2>
         </div>
         <p class="rv rv-d1" style="font-size:1.0625rem;color:#596066;line-height:1.78;">
           Ik ben al meer dan 25 jaar actief als public affairs professional. Mijn ervaring heb ik opgedaan in de politiek, bij de overheid en in het bedrijfsleven. Naast mijn advieswerk ben ik bestuurslid van de Beroepsvereniging voor Public Affairs.
@@ -340,7 +344,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
         <!-- Stats -->
         <div class="grid grid-cols-2 gap-px rv rv-d2" style="background:#e4e8ee;border-radius:2px;overflow:hidden;">
           <div style="background:#fff;padding:28px 24px;">
-            <div class="display font-bold text-[2.6rem] text-primary" style="letter-spacing:-.03em;line-height:1;">25+</div>
+            <div class="display font-bold text-[2.6rem] text-primary" style="letter-spacing:-.03em;line-height:1;">20+</div>
             <div style="font-size:.6rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#596066;margin-top:6px;line-height:1.4;">Jaren actief in<br/>Public Affairs</div>
           </div>
           <div style="background:#fff;padding:28px 24px;">
@@ -350,7 +354,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
           <div style="background:#f9f9fc;padding:22px 24px;" class="col-span-2">
             <div style="font-size:.6rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#3f608a;margin-bottom:6px;">Opleiding</div>
             <div class="display font-semibold text-on-surface" style="font-size:1.0625rem;letter-spacing:-.01em;">Universiteit Twente</div>
-            <div style="font-size:.8125rem;color:#596066;margin-top:3px;">Technische Bedrijfskunde &amp; Wijsbegeerte</div>
+            <div style="font-size:.75rem;color:#596066;margin-top:3px;line-height:1.5;">Technische Bedrijfskunde + Wijsbegeerte van Wetenschap, Technologie &amp; Samenleving<br/><span style="color:#acb3b9;font-size:.6875rem;">Industrial Engineering &amp; Management + Philosophy of Science, Technology &amp; Society</span></div>
           </div>
         </div>
         <!-- Pull quote -->
@@ -374,8 +378,12 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
           <div class="space-y-3 text-[.9375rem] text-on-surface-variant leading-[1.82]">
             <p>Mijn kracht ligt op het snijvlak van overheid, politiek en bedrijfsleven. Ik heb affiniteit met technologie en innovatie en ben ervaren in het vertalen van complexe bedrijfsbelangen naar politiek Den Haag – en andersom.</p>
             <p>Ik kan snel nieuwe onderwerpen eigen maken, draagvlak creëren in diverse netwerken en onder druk optimale resultaten boeken. Schrijven, spreken en organiseren onder tijdsdruk behoren tot mijn kernkwaliteiten.</p>
-            <p>Daarnaast heb ik ervaring met het inrichten van public affairs-functies en het leiden van organisatieverandering.</p>
+            <p>Daarnaast heb ik inmiddels veel ervaring met het analyseren en verbeteren van de public affairs functie binnen bedrijven en branche- en beroepsorganisaties.</p>
           </div>
+          <a href="#cv" style="display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:10px 18px;border:1.5px solid #3f608a;color:#3f608a;font-size:.8125rem;font-weight:700;border-radius:2px;text-decoration:none;transition:background .2s,color .2s;" onmouseover="this.style.background='#3f608a';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#3f608a'">
+            <span class="material-symbols-outlined" style="font-size:15px;">download</span>
+            Download beknopt CV
+          </a>
         </div>
       </div>
     </div>
@@ -392,43 +400,13 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
         <div style="max-width:480px;">
           <div style="font-size:.625rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(187,214,255,.7);margin-bottom:12px;">Loopbaan</div>
           <p class="display font-bold text-white" style="font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.2;letter-spacing:-.02em;">
-            25 jaar op het snijvlak van politiek, overheid en bedrijfsleven.
+            20 jaar op het snijvlak van politiek, overheid en bedrijfsleven.
           </p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Animated horizontal timeline -->
-  <div style="background:#fff;padding:60px 0 80px;" id="tl-section">
-    <div class="max-w-7xl mx-auto px-6 md:px-10">
-      <div class="sec-label" style="margin-bottom:32px;">Loopbaan</div>
-      <div class="tl-wrap" id="tl-wrap">
-
-        <div class="tl-item">
-          <div class="tl-dot past"></div>
-          <div class="tl-year past">Eerder</div>
-          <div class="tl-org">Ministerie V&amp;W · Politiek Adviseur</div>
-          <div class="tl-role">Directie Communicatie &amp; Politieke partij</div>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-dot past"></div>
-          <div class="tl-year past">2007 — 2014</div>
-          <div class="tl-org">Mediq NV</div>
-          <div class="tl-role">Manager Corporate Affairs</div>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-year">2013 — Heden</div>
-          <div class="tl-org">Kortleve Advies</div>
-          <div class="tl-role">Oprichter &amp; Principal Advisor</div>
-        </div>
-
-      </div>
-    </div>
-  </div>
 </section>
 
 
@@ -605,14 +583,14 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
         <div style="position:absolute;width:160px;height:160px;border-radius:50%;border:1px solid rgba(255,255,255,.04);top:20px;left:-40px;pointer-events:none;"></div>
         <div style="position:relative;">
           <div style="font-size:.5875rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(187,214,255,.5);margin-bottom:20px;">Kortleve Advies</div>
-          <div class="display font-bold text-white" style="font-size:2.2rem;line-height:1.15;letter-spacing:-.02em;">Snel inzetbaar.<br/>Vertrouwd gezicht<br/>in Den Haag.</div>
+          <div class="display font-bold text-white" style="font-size:2.2rem;line-height:1.15;letter-spacing:-.02em;">Flexibel en snel<br/>inzetbaar.<br/>Bewezen staat<br/>van dienst.</div>
         </div>
         <div style="position:relative;margin-top:40px;">
           <div style="height:1px;background:rgba(255,255,255,.1);margin-bottom:28px;"></div>
           <div style="display:flex;flex-direction:column;gap:10px;">
             <div style="display:flex;align-items:center;gap:10px;"><div style="width:4px;height:4px;border-radius:50%;background:#7ca8d4;flex-shrink:0;"></div><span style="font-size:.8125rem;color:rgba(255,255,255,.5);">Beschikbaar voor interim &amp; projecten</span></div>
-            <div style="display:flex;align-items:center;gap:10px;"><div style="width:4px;height:4px;border-radius:50%;background:#7ca8d4;flex-shrink:0;"></div><span style="font-size:.8125rem;color:rgba(255,255,255,.5);">25+ jaar netwerk in politiek Den Haag</span></div>
-            <div style="display:flex;align-items:center;gap:10px;"><div style="width:4px;height:4px;border-radius:50%;background:#7ca8d4;flex-shrink:0;"></div><span style="font-size:.8125rem;color:rgba(255,255,255,.5);">BVPA gecertificeerd adviseur</span></div>
+            <div style="display:flex;align-items:center;gap:10px;"><div style="width:4px;height:4px;border-radius:50%;background:#7ca8d4;flex-shrink:0;"></div><span style="font-size:.8125rem;color:rgba(255,255,255,.5);">Sterk netwerk in Den Haag</span></div>
+            <div style="display:flex;align-items:center;gap:10px;"><div style="width:4px;height:4px;border-radius:50%;background:#7ca8d4;flex-shrink:0;"></div><span style="font-size:.8125rem;color:rgba(255,255,255,.5);">Lid van de BVPA</span></div>
           </div>
         </div>
       </div>
@@ -630,7 +608,6 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
         <div class="sec-label">Vertrouwd door</div>
         <h2 class="display font-bold text-[2.2rem] text-on-surface">Klanten &amp; cases</h2>
       </div>
-      <p style="font-size:.6875rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#3f608a;">Gebouwd op autoriteit en integriteit</p>
     </div>
   </div>
 
@@ -705,7 +682,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
     </div>
 
     <button id="klanten-toggle" onclick="toggleKlanten(this)">
-      <span class="toggle-label">Bekijk alle klanten (20)</span>
+      <span class="toggle-label">Bekijk relevante cases (20)</span>
       <span class="material-symbols-outlined toggle-arrow" style="font-size:16px;">expand_more</span>
     </button>
 
@@ -731,23 +708,13 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
       <div style="background:#f2f3f7;border-radius:2px;padding:40px 36px;display:flex;flex-direction:column;gap:22px;" class="cs rv rv-d1">
         <h3 class="display font-semibold text-on-surface" style="font-size:1.125rem;">Directe contactgegevens</h3>
 
-        <a href="mailto:info@kortleveadvies.nl" style="display:flex;align-items:center;gap:14px;text-decoration:none;">
+        <a href="mailto:marco@kortleveadvies.nl" style="display:flex;align-items:center;gap:14px;text-decoration:none;">
           <div style="width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(63,96,138,.08);border-radius:2px;">
             <span class="material-symbols-outlined text-primary" style="font-size:18px;">mail</span>
           </div>
           <div>
             <div style="font-size:.5875rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#596066;margin-bottom:2px;">E-mail</div>
-            <div class="font-semibold text-on-surface" style="font-size:.875rem;">info@kortleveadvies.nl</div>
-          </div>
-        </a>
-
-        <a href="tel:+31612345678" style="display:flex;align-items:center;gap:14px;text-decoration:none;">
-          <div style="width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(63,96,138,.08);border-radius:2px;">
-            <span class="material-symbols-outlined text-primary" style="font-size:18px;">phone</span>
-          </div>
-          <div>
-            <div style="font-size:.5875rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#596066;margin-bottom:2px;">Telefoon</div>
-            <div class="font-semibold text-on-surface" style="font-size:.875rem;">+31 6 12 34 56 78</div>
+            <div class="font-semibold text-on-surface" style="font-size:.875rem;">marco@kortleveadvies.nl</div>
           </div>
         </a>
 
@@ -782,7 +749,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
           </p>
         </div>
         <div style="position:relative;margin-top:32px;">
-          <a href="mailto:info@kortleveadvies.nl" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:16px 20px;background:#fff;color:#3f608a;font-size:.875rem;font-weight:700;border-radius:2px;text-decoration:none;">
+          <a href="mailto:marco@kortleveadvies.nl" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:16px 20px;background:#fff;color:#3f608a;font-size:.875rem;font-weight:700;border-radius:2px;text-decoration:none;">
             <span class="material-symbols-outlined" style="font-size:16px;">mail</span>
             Stuur een e-mail
           </a>
@@ -806,7 +773,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
       <div>
         <div style="font-size:.5875rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:14px;">Navigatie</div>
         <div style="display:flex;flex-direction:column;gap:9px;">
-          <a href="#wie-ik-ben" style="font-size:.8125rem;color:rgba(255,255,255,.45);text-decoration:none;">Wie ik ben</a>
+          <a href="#wie-ik-ben" style="font-size:.8125rem;color:rgba(255,255,255,.45);text-decoration:none;">Over mij</a>
           <a href="#diensten"   style="font-size:.8125rem;color:rgba(255,255,255,.45);text-decoration:none;">Diensten</a>
           <a href="#aanpak"     style="font-size:.8125rem;color:rgba(255,255,255,.45);text-decoration:none;">Aanpak</a>
           <a href="#interim"    style="font-size:.8125rem;color:rgba(255,255,255,.45);text-decoration:none;">Interim</a>
@@ -817,8 +784,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
       <div>
         <div style="font-size:.5875rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:14px;">Contact</div>
         <div style="display:flex;flex-direction:column;gap:9px;">
-          <a href="mailto:info@kortleveadvies.nl" style="font-size:.8125rem;color:rgba(255,255,255,.45);text-decoration:none;">info@kortleveadvies.nl</a>
-          <a href="tel:+31612345678"              style="font-size:.8125rem;color:rgba(255,255,255,.45);text-decoration:none;">+31 6 12 34 56 78</a>
+          <a href="mailto:marco@kortleveadvies.nl" style="font-size:.8125rem;color:rgba(255,255,255,.45);text-decoration:none;">marco@kortleveadvies.nl</a>
           <div style="font-size:.8125rem;color:rgba(255,255,255,.3);">Den Haag, Nederland</div>
         </div>
         <a href="#contact" style="display:inline-flex;align-items:center;gap:6px;margin-top:16px;padding:10px 18px;background:#3f608a;color:#f6f7ff;font-size:.75rem;font-weight:700;border-radius:2px;text-decoration:none;">Contact opnemen</a>
@@ -856,7 +822,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
       </button>
     </div>
     <nav style="display:flex;flex-direction:column;gap:2px;">
-      <a href="#wie-ik-ben" class="drawer-lnk" style="display:flex;align-items:center;gap:12px;padding:12px 14px;color:#596066;font-size:.875rem;font-weight:600;border-radius:2px;text-decoration:none;"><span class="material-symbols-outlined" style="font-size:18px;color:#757b82;">person</span>Wie ik ben</a>
+      <a href="#wie-ik-ben" class="drawer-lnk" style="display:flex;align-items:center;gap:12px;padding:12px 14px;color:#596066;font-size:.875rem;font-weight:600;border-radius:2px;text-decoration:none;"><span class="material-symbols-outlined" style="font-size:18px;color:#757b82;">person</span>Over mij</a>
       <a href="#diensten"   class="drawer-lnk" style="display:flex;align-items:center;gap:12px;padding:12px 14px;color:#596066;font-size:.875rem;font-weight:600;border-radius:2px;text-decoration:none;"><span class="material-symbols-outlined" style="font-size:18px;color:#757b82;">work</span>Diensten</a>
       <a href="#aanpak"     class="drawer-lnk" style="display:flex;align-items:center;gap:12px;padding:12px 14px;color:#596066;font-size:.875rem;font-weight:600;border-radius:2px;text-decoration:none;"><span class="material-symbols-outlined" style="font-size:18px;color:#757b82;">route</span>Aanpak</a>
       <a href="#interim"    class="drawer-lnk" style="display:flex;align-items:center;gap:12px;padding:12px 14px;color:#596066;font-size:.875rem;font-weight:600;border-radius:2px;text-decoration:none;"><span class="material-symbols-outlined" style="font-size:18px;color:#757b82;">business_center</span>Interim</a>
@@ -873,9 +839,19 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
 
 <script>
 (function(){
-  /* Nav scroll */
+  /* Nav scroll + auto-hide */
   const nav = document.getElementById('topnav');
-  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20),{passive:true});
+  let lastY = 0;
+  addEventListener('scroll',()=>{
+    const y = window.scrollY;
+    nav.classList.toggle('scrolled', y > 20);
+    if(y > 120) {
+      nav.classList.toggle('nav-hidden', y > lastY);
+    } else {
+      nav.classList.remove('nav-hidden');
+    }
+    lastY = y;
+  },{passive:true});
 
   /* Drawer */
   const drawer=document.getElementById('drawer'),overlay=document.getElementById('overlay');
