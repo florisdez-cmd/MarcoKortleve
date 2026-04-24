@@ -57,7 +57,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
 .srv-item-desc{font-size:.8125rem;color:rgba(255,255,255,.62);line-height:1.7}
 
 /* Ticker */
-.ticker-inner{display:flex;gap:80px;animation:ticker 52s linear infinite;width:max-content;will-change:transform}
+.ticker-inner{display:flex;gap:72px;align-items:center;animation:ticker 72s linear infinite;width:max-content;will-change:transform}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* Qmark */
@@ -183,7 +183,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
 
   /* === KLANTEN === */
   #klanten{padding:56px 0!important}
-  #klanten-grid-wrap.open{max-height:1400px!important}
+  #klanten-grid-wrap.open{max-height:2000px!important}
 
   /* === CONTACT === */
   #contact{padding:64px 0!important}
@@ -193,17 +193,18 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
   footer{padding:40px 0 24px!important}
 
   /* === FLOATING BTN === */
-  #float-btn{bottom:18px;right:14px;padding:11px 16px;gap:8px}
-  #float-btn .fb-label{max-width:0!important;overflow:hidden;padding:0!important;width:0}
 }
 
 /* ── Klanten reveal ── */
 #klanten-grid-wrap{max-height:0;overflow:hidden;transition:max-height .6s cubic-bezier(.4,0,.2,1)}
-#klanten-grid-wrap.open{max-height:600px}
+#klanten-grid-wrap.open{max-height:1200px}
 #klanten-toggle{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border:1.5px solid #3f608a;color:#3f608a;font-size:.8125rem;font-weight:700;border-radius:2px;cursor:pointer;background:transparent;transition:background .2s,color .2s;margin-top:24px}
 #klanten-toggle:hover{background:#3f608a;color:#fff}
 .toggle-arrow{display:inline-block;transition:transform .35s ease}
 #klanten-grid-wrap.open ~ #klanten-toggle .toggle-arrow{transform:rotate(180deg)}
+.logo-cell img{transition:opacity .25s,filter .25s}
+.logo-cell:hover{background:#fff!important}
+.logo-cell:hover img{opacity:.9!important;filter:grayscale(0)!important}
 
 /* ── Site-wide scroll reveal ── */
 .rv{opacity:0;transform:translateY(32px);transition:opacity .72s ease,transform .72s cubic-bezier(.22,1,.36,1),background .35s,box-shadow .35s}
@@ -221,10 +222,10 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
 #topnav.nav-hidden{transform:translateY(-100%)}
 
 /* ── Floating contact button ── */
-#float-btn{position:fixed;bottom:28px;right:28px;z-index:90;display:flex;align-items:center;gap:10px;padding:13px 20px;background:linear-gradient(135deg,#3f608a,#28456e);color:#fff;font-size:.8125rem;font-weight:700;border-radius:28px;box-shadow:0 8px 28px rgba(63,96,138,.4);text-decoration:none;transition:transform .2s,box-shadow .2s;white-space:nowrap}
-#float-btn:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(63,96,138,.5)}
-#float-btn .fb-label{max-width:120px;overflow:hidden;transition:max-width .3s ease}
-@media(max-width:480px){#float-btn .fb-label{max-width:0;padding:0}}
+#float-btn{position:fixed;bottom:28px;right:28px;z-index:90;display:flex;align-items:center;gap:8px;padding:12px 16px;background:#3f608a;color:#fff;font-size:.75rem;font-weight:700;border-radius:2px;box-shadow:0 4px 16px rgba(63,96,138,.25);text-decoration:none;transition:transform .2s,box-shadow .2s,opacity .2s;white-space:nowrap;opacity:.85}
+#float-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(63,96,138,.35);opacity:1}
+#float-btn .fb-label{max-width:100px;overflow:hidden;transition:max-width .3s ease}
+@media(max-width:480px){#float-btn{bottom:18px;right:14px;padding:10px 14px;}#float-btn .fb-label{max-width:0;overflow:hidden;padding:0;width:0}}
 </style>
 </head>
 <body>
@@ -237,7 +238,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
       <span style="font-size:.59rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#3f608a;margin-top:2px;">Public Affairs Advisor</span>
     </a>
     <div class="hidden md:flex items-center gap-7">
-      <a href="#wie-ik-ben" class="nav-link">Over mij</a>
+      <a href="#wie-ik-ben" class="nav-link">Over</a>
       <a href="#diensten"   class="nav-link">Diensten</a>
       <a href="#aanpak"     class="nav-link">Aanpak</a>
       <a href="#interim"    class="nav-link">Interim</a>
@@ -269,8 +270,22 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
           Het juiste verhaal,<br/>op het juiste moment,<br/>bij het juiste publiek.
         </h1>
         <p class="text-[1.0625rem] md:text-[1.125rem] text-on-surface-variant font-light leading-[1.75] max-w-[42rem]">
-          Meer dan 25 jaar ervaring in politiek, overheid en bedrijfsleven. Ik help organisaties overheidsbeleid te volgen, te beïnvloeden en hun verhaal overtuigend te vertellen.
+          Meer dan 20 jaar ervaring in politiek, overheid en bedrijfsleven. Ik help organisaties overheidsbeleid te volgen, te beïnvloeden en hun verhaal overtuigend te vertellen.
         </p>
+        <!-- Stempel -->
+        <div class="rv" style="display:flex;align-items:center;gap:20px;margin-top:4px;">
+          <div style="position:relative;width:100px;height:100px;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+            <div style="position:absolute;inset:0;border-radius:50%;border:2px dashed #3f608a;opacity:.55;"></div>
+            <div style="position:absolute;inset:7px;border-radius:50%;border:1.5px solid #3f608a;opacity:.22;"></div>
+            <div style="text-align:center;position:relative;z-index:1;">
+              <div class="display font-bold" style="font-size:1.5rem;color:#3f608a;line-height:1;letter-spacing:-.03em;">20+</div>
+              <div style="width:18px;height:1px;background:#3f608a;margin:4px auto;opacity:.45;"></div>
+              <div style="font-size:.42rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#3f608a;line-height:1.65;">jaar<br/>ervaring</div>
+            </div>
+          </div>
+          <p style="font-size:.875rem;color:#596066;line-height:1.7;max-width:18rem;">Meer dan 20 jaar actief in politiek, overheid en bedrijfsleven.</p>
+        </div>
+
         <div class="flex flex-col sm:flex-row gap-3 pt-1">
           <a href="#contact" class="inline-flex items-center justify-center gap-2 px-7 py-[14px] expert-gradient text-white font-semibold text-sm rounded-sm es hover:opacity-90" style="border-radius:2px;">
             Plan een vrijblijvend kennismakingsgesprek
@@ -339,7 +354,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
           <h2 class="display font-bold text-[2.4rem] md:text-[2.8rem] text-on-surface leading-tight">Over mij</h2>
         </div>
         <p class="rv rv-d1" style="font-size:1.0625rem;color:#596066;line-height:1.78;">
-          Ik ben al meer dan 25 jaar actief als public affairs professional. Mijn ervaring heb ik opgedaan in de politiek, bij de overheid en in het bedrijfsleven. Naast mijn advieswerk ben ik bestuurslid van de Beroepsvereniging voor Public Affairs.
+          Ik ben al meer dan 20 jaar actief als public affairs professional. Mijn ervaring heb ik opgedaan in de politiek, bij de overheid en in het bedrijfsleven. Naast mijn advieswerk ben ik bestuurslid van de Beroepsvereniging voor Public Affairs.
         </p>
         <!-- Stats -->
         <div class="grid grid-cols-2 gap-px rv rv-d2" style="background:#e4e8ee;border-radius:2px;overflow:hidden;">
@@ -612,41 +627,50 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
   </div>
 
   <!-- Ticker always visible -->
-  <div style="overflow:hidden;padding:10px 0;position:relative;">
+  <div style="overflow:hidden;padding:16px 0;position:relative;">
     <div class="ticker-inner" aria-hidden="true">
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">Mediq</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">KNOV</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">GGD GHOR</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">MSD</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">Wepublic</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">NVM</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">Boehringer Ingelheim</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">Jumbo</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">Kadaster</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">De Heus</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">VNCI</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">NIVRE</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">BG Pharma</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">ASKA</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">Sherwin Williams</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">SNN</span>
-      <!-- duplicate set for seamless loop -->
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">Mediq</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">KNOV</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">GGD GHOR</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">MSD</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">Wepublic</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">NVM</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">Boehringer Ingelheim</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">Jumbo</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">Kadaster</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">De Heus</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">VNCI</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">NIVRE</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">BG Pharma</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">ASKA</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">Sherwin Williams</span>
-      <span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);white-space:nowrap;">SNN</span>
+      <!-- set 1 -->
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/mediq.com" alt="Mediq" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">Mediq</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/knov.nl" alt="KNOV" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">KNOV</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/ggdghor.nl" alt="GGD GHOR" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">GGD GHOR</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/msd.com" alt="MSD" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">MSD</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/wepublic.nl" alt="Wepublic" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">Wepublic</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/nvm.nl" alt="NVM" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">NVM</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/boehringer-ingelheim.com" alt="Boehringer Ingelheim" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">Boehringer Ingelheim</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/jumbo.com" alt="Jumbo" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">Jumbo</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/kadaster.nl" alt="Kadaster" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">Kadaster</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/deheus.com" alt="De Heus" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">De Heus</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/vnci.nl" alt="VNCI" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">VNCI</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/nivre.nl" alt="NIVRE" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">NIVRE</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/bgpharma.nl" alt="BG Pharma" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">BG Pharma</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/aska.nl" alt="ASKA" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">ASKA</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/sherwin-williams.com" alt="Sherwin-Williams" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">Sherwin-Williams</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/snn.nl" alt="SNN" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">SNN</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/nvo.nl" alt="Ned. Ver. van Orkesten" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">Ned. Ver. van Orkesten</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/mensenrechten.nl" alt="College v/d Rechten v/d Mens" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">College v/d Rechten v/d Mens</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/nvcg.nl" alt="Ned. Ver. Cosmetische Geneeskunde" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">Ned. Ver. Cosm. Geneeskunde</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/avs.nl" alt="Academie & Vakver. Schoolleiders" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">Academie &amp; Vakver. Schoolleiders</span></span>
+      <!-- set 2 — seamless loop duplicate -->
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/mediq.com" alt="Mediq" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">Mediq</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/knov.nl" alt="KNOV" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">KNOV</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/ggdghor.nl" alt="GGD GHOR" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">GGD GHOR</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/msd.com" alt="MSD" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">MSD</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/wepublic.nl" alt="Wepublic" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">Wepublic</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/nvm.nl" alt="NVM" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">NVM</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/boehringer-ingelheim.com" alt="Boehringer Ingelheim" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">Boehringer Ingelheim</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/jumbo.com" alt="Jumbo" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">Jumbo</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/kadaster.nl" alt="Kadaster" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">Kadaster</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/deheus.com" alt="De Heus" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">De Heus</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/vnci.nl" alt="VNCI" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">VNCI</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/nivre.nl" alt="NIVRE" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">NIVRE</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/bgpharma.nl" alt="BG Pharma" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">BG Pharma</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/aska.nl" alt="ASKA" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">ASKA</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/sherwin-williams.com" alt="Sherwin-Williams" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">Sherwin-Williams</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/snn.nl" alt="SNN" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">SNN</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/nvo.nl" alt="Ned. Ver. van Orkesten" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">Ned. Ver. van Orkesten</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/mensenrechten.nl" alt="College v/d Rechten v/d Mens" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">College v/d Rechten v/d Mens</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/nvcg.nl" alt="Ned. Ver. Cosmetische Geneeskunde" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">Ned. Ver. Cosm. Geneeskunde</span></span>
+      <span style="display:inline-flex;align-items:center;white-space:nowrap;"><img src="https://logo.clearbit.com/avs.nl" alt="Academie & Vakver. Schoolleiders" style="height:30px;filter:grayscale(1);opacity:.42;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="display font-bold text-[1.0625rem]" style="color:rgba(45,51,57,.42);display:none;">Academie &amp; Vakver. Schoolleiders</span></span>
     </div>
     <div style="position:absolute;left:0;top:0;bottom:0;width:80px;background:linear-gradient(to right,#f2f3f7,transparent);pointer-events:none;"></div>
     <div style="position:absolute;right:0;top:0;bottom:0;width:80px;background:linear-gradient(to left,#f2f3f7,transparent);pointer-events:none;"></div>
@@ -657,26 +681,26 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
 
     <div id="klanten-grid-wrap">
       <div id="clients-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#dde3ea;border-radius:2px;overflow:hidden;margin-top:24px;">
-        <div style="background:#f9f9fc;padding:18px 20px;display:flex;align-items:center;justify-content:center;"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;">Mediq</span></div>
-        <div style="background:#f9f9fc;padding:18px 20px;display:flex;align-items:center;justify-content:center;"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;">KNOV</span></div>
-        <div style="background:#f9f9fc;padding:18px 20px;display:flex;align-items:center;justify-content:center;"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;">GGD GHOR</span></div>
-        <div style="background:#f9f9fc;padding:18px 20px;display:flex;align-items:center;justify-content:center;"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;">MSD</span></div>
-        <div style="background:#f9f9fc;padding:18px 20px;display:flex;align-items:center;justify-content:center;"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;">Wepublic</span></div>
-        <div style="background:#f9f9fc;padding:18px 20px;display:flex;align-items:center;justify-content:center;"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;">NVM</span></div>
-        <div style="background:#f9f9fc;padding:18px 20px;display:flex;align-items:center;justify-content:center;"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;text-align:center;">Boehringer Ingelheim</span></div>
-        <div style="background:#f9f9fc;padding:18px 20px;display:flex;align-items:center;justify-content:center;"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;text-align:center;">Ned. Ver. van Orkesten</span></div>
-        <div style="background:#f9f9fc;padding:18px 20px;display:flex;align-items:center;justify-content:center;"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;">BG Pharma</span></div>
-        <div style="background:#f9f9fc;padding:18px 20px;display:flex;align-items:center;justify-content:center;"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;">ASKA</span></div>
-        <div style="background:#f9f9fc;padding:18px 20px;display:flex;align-items:center;justify-content:center;"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;">Jumbo</span></div>
-        <div style="background:#f9f9fc;padding:18px 20px;display:flex;align-items:center;justify-content:center;"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;text-align:center;">College v/d Rechten v/d Mens</span></div>
-        <div style="background:#f9f9fc;padding:18px 20px;display:flex;align-items:center;justify-content:center;"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;">De Heus</span></div>
-        <div style="background:#f9f9fc;padding:18px 20px;display:flex;align-items:center;justify-content:center;"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;">NIVRE</span></div>
-        <div style="background:#f9f9fc;padding:18px 20px;display:flex;align-items:center;justify-content:center;"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;text-align:center;">Ned. Ver. Cosmetische Geneeskunde</span></div>
-        <div style="background:#f9f9fc;padding:18px 20px;display:flex;align-items:center;justify-content:center;"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;">Sherwin Williams</span></div>
-        <div style="background:#f9f9fc;padding:18px 20px;display:flex;align-items:center;justify-content:center;"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;">VNCI</span></div>
-        <div style="background:#f9f9fc;padding:18px 20px;display:flex;align-items:center;justify-content:center;"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;text-align:center;">Academie &amp; Vakver. Schoolleiders</span></div>
-        <div style="background:#f9f9fc;padding:18px 20px;display:flex;align-items:center;justify-content:center;"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;">Kadaster</span></div>
-        <div style="background:#f9f9fc;padding:18px 20px;display:flex;align-items:center;justify-content:center;"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;">SNN</span></div>
+        <div class="logo-cell" style="background:#f9f9fc;padding:24px 20px;display:flex;align-items:center;justify-content:center;min-height:88px;"><img src="https://logo.clearbit.com/mediq.com" alt="Mediq" title="Mediq" style="max-height:44px;max-width:140px;filter:grayscale(1);opacity:.52;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;display:none;">Mediq</span></div>
+        <div class="logo-cell" style="background:#f9f9fc;padding:24px 20px;display:flex;align-items:center;justify-content:center;min-height:88px;"><img src="https://logo.clearbit.com/knov.nl" alt="KNOV" title="KNOV" style="max-height:44px;max-width:140px;filter:grayscale(1);opacity:.52;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;display:none;">KNOV</span></div>
+        <div class="logo-cell" style="background:#f9f9fc;padding:24px 20px;display:flex;align-items:center;justify-content:center;min-height:88px;"><img src="https://logo.clearbit.com/ggdghor.nl" alt="GGD GHOR" title="GGD GHOR" style="max-height:44px;max-width:140px;filter:grayscale(1);opacity:.52;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;display:none;">GGD GHOR</span></div>
+        <div class="logo-cell" style="background:#f9f9fc;padding:24px 20px;display:flex;align-items:center;justify-content:center;min-height:88px;"><img src="https://logo.clearbit.com/msd.com" alt="MSD" title="MSD" style="max-height:44px;max-width:140px;filter:grayscale(1);opacity:.52;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;display:none;">MSD</span></div>
+        <div class="logo-cell" style="background:#f9f9fc;padding:24px 20px;display:flex;align-items:center;justify-content:center;min-height:88px;"><img src="https://logo.clearbit.com/wepublic.nl" alt="Wepublic" title="Wepublic" style="max-height:44px;max-width:140px;filter:grayscale(1);opacity:.52;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;display:none;">Wepublic</span></div>
+        <div class="logo-cell" style="background:#f9f9fc;padding:24px 20px;display:flex;align-items:center;justify-content:center;min-height:88px;"><img src="https://logo.clearbit.com/nvm.nl" alt="NVM" title="NVM" style="max-height:44px;max-width:140px;filter:grayscale(1);opacity:.52;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;display:none;">NVM</span></div>
+        <div class="logo-cell" style="background:#f9f9fc;padding:24px 20px;display:flex;align-items:center;justify-content:center;min-height:88px;"><img src="https://logo.clearbit.com/boehringer-ingelheim.com" alt="Boehringer Ingelheim" title="Boehringer Ingelheim" style="max-height:44px;max-width:140px;filter:grayscale(1);opacity:.52;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;text-align:center;display:none;">Boehringer Ingelheim</span></div>
+        <div class="logo-cell" style="background:#f9f9fc;padding:24px 20px;display:flex;align-items:center;justify-content:center;min-height:88px;"><img src="https://logo.clearbit.com/nvo.nl" alt="Ned. Ver. van Orkesten" title="Ned. Ver. van Orkesten" style="max-height:44px;max-width:140px;filter:grayscale(1);opacity:.52;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;text-align:center;display:none;">Ned. Ver. van Orkesten</span></div>
+        <div class="logo-cell" style="background:#f9f9fc;padding:24px 20px;display:flex;align-items:center;justify-content:center;min-height:88px;"><img src="https://logo.clearbit.com/bgpharma.nl" alt="BG Pharma" title="BG Pharma" style="max-height:44px;max-width:140px;filter:grayscale(1);opacity:.52;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;display:none;">BG Pharma</span></div>
+        <div class="logo-cell" style="background:#f9f9fc;padding:24px 20px;display:flex;align-items:center;justify-content:center;min-height:88px;"><img src="https://logo.clearbit.com/aska.nl" alt="ASKA" title="ASKA" style="max-height:44px;max-width:140px;filter:grayscale(1);opacity:.52;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;display:none;">ASKA</span></div>
+        <div class="logo-cell" style="background:#f9f9fc;padding:24px 20px;display:flex;align-items:center;justify-content:center;min-height:88px;"><img src="https://logo.clearbit.com/jumbo.com" alt="Jumbo" title="Jumbo" style="max-height:44px;max-width:140px;filter:grayscale(1);opacity:.52;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;display:none;">Jumbo</span></div>
+        <div class="logo-cell" style="background:#f9f9fc;padding:24px 20px;display:flex;align-items:center;justify-content:center;min-height:88px;"><img src="https://logo.clearbit.com/mensenrechten.nl" alt="College v/d Rechten v/d Mens" title="College v/d Rechten v/d Mens" style="max-height:44px;max-width:140px;filter:grayscale(1);opacity:.52;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;text-align:center;display:none;">College v/d Rechten v/d Mens</span></div>
+        <div class="logo-cell" style="background:#f9f9fc;padding:24px 20px;display:flex;align-items:center;justify-content:center;min-height:88px;"><img src="https://logo.clearbit.com/deheus.com" alt="De Heus" title="De Heus" style="max-height:44px;max-width:140px;filter:grayscale(1);opacity:.52;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;display:none;">De Heus</span></div>
+        <div class="logo-cell" style="background:#f9f9fc;padding:24px 20px;display:flex;align-items:center;justify-content:center;min-height:88px;"><img src="https://logo.clearbit.com/nivre.nl" alt="NIVRE" title="NIVRE" style="max-height:44px;max-width:140px;filter:grayscale(1);opacity:.52;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;display:none;">NIVRE</span></div>
+        <div class="logo-cell" style="background:#f9f9fc;padding:24px 20px;display:flex;align-items:center;justify-content:center;min-height:88px;"><img src="https://logo.clearbit.com/nvcg.nl" alt="Ned. Ver. Cosmetische Geneeskunde" title="Ned. Ver. Cosm. Geneeskunde" style="max-height:44px;max-width:140px;filter:grayscale(1);opacity:.52;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;text-align:center;display:none;">Ned. Ver. Cosm. Geneeskunde</span></div>
+        <div class="logo-cell" style="background:#f9f9fc;padding:24px 20px;display:flex;align-items:center;justify-content:center;min-height:88px;"><img src="https://logo.clearbit.com/sherwin-williams.com" alt="Sherwin-Williams" title="Sherwin-Williams" style="max-height:44px;max-width:140px;filter:grayscale(1);opacity:.52;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;display:none;">Sherwin-Williams</span></div>
+        <div class="logo-cell" style="background:#f9f9fc;padding:24px 20px;display:flex;align-items:center;justify-content:center;min-height:88px;"><img src="https://logo.clearbit.com/vnci.nl" alt="VNCI" title="VNCI" style="max-height:44px;max-width:140px;filter:grayscale(1);opacity:.52;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;display:none;">VNCI</span></div>
+        <div class="logo-cell" style="background:#f9f9fc;padding:24px 20px;display:flex;align-items:center;justify-content:center;min-height:88px;"><img src="https://logo.clearbit.com/avs.nl" alt="Academie &amp; Vakver. Schoolleiders" title="Academie &amp; Vakver. Schoolleiders" style="max-height:44px;max-width:140px;filter:grayscale(1);opacity:.52;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;text-align:center;display:none;">Academie &amp; Vakver. Schoolleiders</span></div>
+        <div class="logo-cell" style="background:#f9f9fc;padding:24px 20px;display:flex;align-items:center;justify-content:center;min-height:88px;"><img src="https://logo.clearbit.com/kadaster.nl" alt="Kadaster" title="Kadaster" style="max-height:44px;max-width:140px;filter:grayscale(1);opacity:.52;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;display:none;">Kadaster</span></div>
+        <div class="logo-cell" style="background:#f9f9fc;padding:24px 20px;display:flex;align-items:center;justify-content:center;min-height:88px;"><img src="https://logo.clearbit.com/snn.nl" alt="SNN" title="SNN" style="max-height:44px;max-width:140px;filter:grayscale(1);opacity:.52;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="display font-bold" style="color:rgba(45,51,57,.5);font-size:.9375rem;display:none;">SNN</span></div>
       </div>
       <p style="font-size:.75rem;color:#757b82;margin-top:12px;text-align:center;font-style:italic;">En nog vele anderen.</p>
     </div>
@@ -768,12 +792,12 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
       <div>
         <div class="display font-bold text-white" style="font-size:1.0625rem;">Marco Kortleve</div>
         <div style="font-size:.5875rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#7ca8d4;margin-top:3px;margin-bottom:12px;">Public Affairs Advisor</div>
-        <p style="color:rgba(255,255,255,.32);font-size:.8125rem;line-height:1.7;max-width:22rem;">Meer dan 25 jaar ervaring in politiek, overheid en bedrijfsleven. Gevestigd in Den Haag.</p>
+        <p style="color:rgba(255,255,255,.32);font-size:.8125rem;line-height:1.7;max-width:22rem;">Meer dan 20 jaar ervaring in politiek, overheid en bedrijfsleven. Gevestigd in Den Haag.</p>
       </div>
       <div>
         <div style="font-size:.5875rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:14px;">Navigatie</div>
         <div style="display:flex;flex-direction:column;gap:9px;">
-          <a href="#wie-ik-ben" style="font-size:.8125rem;color:rgba(255,255,255,.45);text-decoration:none;">Over mij</a>
+          <a href="#wie-ik-ben" style="font-size:.8125rem;color:rgba(255,255,255,.45);text-decoration:none;">Over</a>
           <a href="#diensten"   style="font-size:.8125rem;color:rgba(255,255,255,.45);text-decoration:none;">Diensten</a>
           <a href="#aanpak"     style="font-size:.8125rem;color:rgba(255,255,255,.45);text-decoration:none;">Aanpak</a>
           <a href="#interim"    style="font-size:.8125rem;color:rgba(255,255,255,.45);text-decoration:none;">Interim</a>
@@ -791,7 +815,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
       </div>
     </div>
     <div style="padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;">
-      <p style="font-size:.6875rem;color:rgba(255,255,255,.2);">© 2024 Marco Kortleve Public Affairs. Alle rechten voorbehouden.</p>
+      <p style="font-size:.6875rem;color:rgba(255,255,255,.2);">© 2026 Marco Kortleve Public Affairs. Alle rechten voorbehouden.</p>
       <div style="display:flex;gap:20px;">
         <a href="#" style="font-size:.6875rem;color:rgba(255,255,255,.2);text-decoration:none;">Privacy Policy</a>
         <a href="#" style="font-size:.6875rem;color:rgba(255,255,255,.2);text-decoration:none;">Algemene Voorwaarden</a>
@@ -822,7 +846,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
       </button>
     </div>
     <nav style="display:flex;flex-direction:column;gap:2px;">
-      <a href="#wie-ik-ben" class="drawer-lnk" style="display:flex;align-items:center;gap:12px;padding:12px 14px;color:#596066;font-size:.875rem;font-weight:600;border-radius:2px;text-decoration:none;"><span class="material-symbols-outlined" style="font-size:18px;color:#757b82;">person</span>Over mij</a>
+      <a href="#wie-ik-ben" class="drawer-lnk" style="display:flex;align-items:center;gap:12px;padding:12px 14px;color:#596066;font-size:.875rem;font-weight:600;border-radius:2px;text-decoration:none;"><span class="material-symbols-outlined" style="font-size:18px;color:#757b82;">person</span>Over</a>
       <a href="#diensten"   class="drawer-lnk" style="display:flex;align-items:center;gap:12px;padding:12px 14px;color:#596066;font-size:.875rem;font-weight:600;border-radius:2px;text-decoration:none;"><span class="material-symbols-outlined" style="font-size:18px;color:#757b82;">work</span>Diensten</a>
       <a href="#aanpak"     class="drawer-lnk" style="display:flex;align-items:center;gap:12px;padding:12px 14px;color:#596066;font-size:.875rem;font-weight:600;border-radius:2px;text-decoration:none;"><span class="material-symbols-outlined" style="font-size:18px;color:#757b82;">route</span>Aanpak</a>
       <a href="#interim"    class="drawer-lnk" style="display:flex;align-items:center;gap:12px;padding:12px 14px;color:#596066;font-size:.875rem;font-weight:600;border-radius:2px;text-decoration:none;"><span class="material-symbols-outlined" style="font-size:18px;color:#757b82;">business_center</span>Interim</a>
