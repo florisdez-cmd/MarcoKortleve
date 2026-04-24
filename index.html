@@ -8,14 +8,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
 <script>
-tailwind.config={theme:{extend:{colors:{"primary":"#3f608a","primary-dim":"#32547d","primary-fixed-dim":"#bbd6ff","on-primary":"#f6f7ff","tertiary-container":"#dcddfe","on-tertiary-container":"#4c4e69","surface-container-lowest":"#ffffff","surface-container-low":"#f2f3f7","surface-container":"#ebeef3","surface-container-high":"#e4e8ee","surface-container-highest":"#dde3ea","on-surface":"#2d3339","on-surface-variant":"#596066","background":"#f9f9fc","outline":"#757b82","outline-variant":"#acb3b9","inverse-surface":"#152d4a"},fontFamily:{"headline":["Noto Serif","Georgia","serif"],"body":["Manrope","system-ui","sans-serif"]},borderRadius:{"DEFAULT":"0.125rem","sm":"0.125rem","lg":"0.25rem","full":"9999px"}}}}
+tailwind.config={theme:{extend:{colors:{"primary":"#3f608a","primary-dim":"#32547d","primary-fixed-dim":"#bbd6ff","on-primary":"#f6f7ff","tertiary-container":"#dcddfe","on-tertiary-container":"#4c4e69","surface-container-lowest":"#ffffff","surface-container-low":"#f2f3f7","surface-container":"#ebeef3","surface-container-high":"#e4e8ee","surface-container-highest":"#dde3ea","on-surface":"#2d3339","on-surface-variant":"#596066","background":"#f9f9fc","outline":"#757b82","outline-variant":"#acb3b9","inverse-surface":"#244969"},fontFamily:{"headline":["Noto Serif","Georgia","serif"],"body":["Manrope","system-ui","sans-serif"]},borderRadius:{"DEFAULT":"0.125rem","sm":"0.125rem","lg":"0.25rem","full":"9999px"}}}}
 </script>
 <style>
 *,*::before,*::after{box-sizing:border-box}
 body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 .display{font-family:'Noto Serif',Georgia,serif;letter-spacing:-0.022em}
-.expert-gradient{background:linear-gradient(135deg,#3f608a 0%,#28456e 100%)}
-.dark-section{background:linear-gradient(160deg,#1e3a5c 0%,#152d4a 100%)}
+.expert-gradient{background:linear-gradient(135deg,#3f608a 0%,#2e5278 100%)}
+.dark-section{background:linear-gradient(160deg,#244969 0%,#244969 100%)}
 .es{box-shadow:0 20px 56px rgba(45,51,57,.08),0 4px 14px rgba(45,51,57,.04)}
 .cs{box-shadow:0 6px 24px rgba(45,51,57,.06),0 2px 6px rgba(45,51,57,.03)}
 
@@ -47,14 +47,29 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
 /* Chip */
 .chip{display:inline-flex;align-items:center;padding:5px 13px;background:#dcddfe;color:#4c4e69;border-radius:9999px;font-size:.75rem;font-weight:600}
 
-/* Service card */
-.srv-card{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.10);transition:background .35s,transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s;cursor:pointer}
-.srv-card:hover{background:rgba(255,255,255,.11);transform:translateY(-6px) scale(1.018);box-shadow:0 28px 56px rgba(0,0,0,.28)}
-.srv-card.is-selected{background:rgba(255,255,255,.14);border-color:rgba(187,214,255,.3);transform:translateY(-8px) scale(1.022);box-shadow:0 32px 64px rgba(0,0,0,.32)}
-.srv-card:not(.is-selected):not(:hover){opacity:.88}
+/* Service card — glass on dark */
+.srv-card{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.09);border-top:2px solid rgba(187,214,255,.25);transition:background .35s,transform .44s cubic-bezier(.22,1,.36,1),box-shadow .44s,border-top-color .35s;cursor:pointer;position:relative;overflow:hidden}
+.srv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:220px;background:radial-gradient(ellipse at 50% -10%,rgba(187,214,255,.15) 0%,transparent 68%);opacity:0;transition:opacity .4s;pointer-events:none}
+.srv-card:hover{background:rgba(255,255,255,.10);transform:translateY(-10px);box-shadow:0 28px 56px rgba(0,0,0,.35),0 0 0 1px rgba(187,214,255,.18);border-top-color:rgba(187,214,255,.8)}
+.srv-card:hover::before{opacity:1}
+.srv-card.is-selected{background:rgba(255,255,255,.13);border-top-color:#bbd6ff;transform:translateY(-12px);box-shadow:0 32px 64px rgba(0,0,0,.4),0 0 0 1px rgba(187,214,255,.28)}
+.srv-card.is-selected::before{opacity:1}
+.srv-card:not(.is-selected):not(:hover){opacity:1}
+.srv-icon{width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(187,214,255,.10);border-radius:2px;transition:background .35s,box-shadow .35s}
+.srv-card:hover .srv-icon{background:rgba(187,214,255,.2);box-shadow:0 0 22px rgba(187,214,255,.18)}
+.srv-num{font-size:.6rem;font-weight:800;letter-spacing:.2em;color:rgba(187,214,255,.28);transition:color .3s}
+.srv-card:hover .srv-num{color:rgba(187,214,255,.65)}
+.srv-title-line{width:0;height:1.5px;background:#bbd6ff;opacity:.6;transition:width .4s ease;margin-top:10px;margin-bottom:2px}
+.srv-card:hover .srv-title-line{width:32px}
 .srv-item{border-top:1px solid rgba(255,255,255,.08);padding-top:18px;margin-top:18px}
-.srv-item-title{font-size:.8125rem;font-weight:700;color:rgba(255,255,255,.88);margin-bottom:5px}
-.srv-item-desc{font-size:.8125rem;color:rgba(255,255,255,.62);line-height:1.7}
+.srv-item-title{font-size:.8125rem;font-weight:700;color:rgba(255,255,255,.82);margin-bottom:5px;transition:color .25s}
+.srv-item-desc{font-size:.8125rem;color:rgba(255,255,255,.5);line-height:1.7;transition:color .25s}
+.srv-card:hover .srv-item-title{color:rgba(255,255,255,.96)}
+.srv-card:hover .srv-item-desc{color:rgba(255,255,255,.66)}
+/* Directional reveal */
+.rv-left{opacity:0;transform:translateX(-52px);transition:opacity .72s ease,transform .76s cubic-bezier(.22,1,.36,1)}
+.rv-right{opacity:0;transform:translateX(52px);transition:opacity .72s ease,transform .76s cubic-bezier(.22,1,.36,1)}
+.rv-left.in,.rv-right.in{opacity:1;transform:none}
 
 /* Ticker */
 .ticker-inner{display:flex;gap:72px;align-items:center;animation:ticker 72s linear infinite;width:max-content;will-change:transform}
@@ -164,8 +179,8 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
   /* === DIENSTEN === */
   #diensten{padding:64px 0!important}
   .srv-card{padding:24px!important;transform:none!important;opacity:1!important}
-  .srv-card:hover,.srv-card.is-selected{transform:none!important;box-shadow:none!important;background:rgba(255,255,255,.11)!important}
-  .srv-card:not(.is-selected):not(:hover){opacity:1!important}
+  .srv-card:hover,.srv-card.is-selected{transform:none!important;box-shadow:none!important}
+  .rv-left,.rv-right{transform:none;opacity:0}
   .srv-item-desc{font-size:.8125rem!important}
 
   /* === AANPAK === */
@@ -300,7 +315,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
       <!-- Portrait — EvaHuizing seated photo -->
       <div class="lg:col-span-5">
         <div style="position:relative;">
-          <div style="position:absolute;top:-20px;right:-20px;left:20px;bottom:20px;background:linear-gradient(135deg,#3f608a,#28456e);opacity:.06;border-radius:2px;"></div>
+          <div style="position:absolute;top:-20px;right:-20px;left:20px;bottom:20px;background:linear-gradient(135deg,#3f608a,#2e5278);opacity:.06;border-radius:2px;"></div>
           <div style="position:relative;overflow:hidden;border-radius:2px;aspect-ratio:3/4;background:#dde3ea;" class="es">
             <img src="hero.jpg" alt="Marco Kortleve" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;"/>
             <div style="position:absolute;inset-x:0;bottom:0;height:40%;background:linear-gradient(to top,rgba(14,26,39,.5),transparent);"></div>
@@ -428,7 +443,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
 <!-- ════════ DIENSTEN ════════ -->
 <section id="diensten" class="relative overflow-hidden dark-section" style="padding:96px 0;">
   <div class="grid-bg-dark absolute inset-0 pointer-events-none"></div>
-  <div style="position:absolute;width:480px;height:480px;border-radius:50%;border:1px solid rgba(255,255,255,.04);top:-120px;right:6%;pointer-events:none;"></div>
+  <div style="position:absolute;width:520px;height:520px;border-radius:50%;border:1px solid rgba(255,255,255,.04);top:-140px;right:4%;pointer-events:none;"></div>
 
   <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-14">
@@ -437,18 +452,23 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
         <h2 class="display font-bold text-[2.4rem] md:text-[2.8rem] text-white leading-tight">Wat ik voor u kan doen</h2>
       </div>
       <div class="flex items-end rv rv-d1">
-        <p style="color:rgba(255,255,255,.58);font-size:.9375rem;line-height:1.75;max-width:36rem;">
+        <p style="color:rgba(255,255,255,.62);font-size:.9375rem;line-height:1.78;max-width:36rem;">
           Of het nu gaat om het signaleren van nieuwe kansen of het managen van een crisissituatie: ik help u overheidsbeleid beter te volgen en gericht te beïnvloeden. Ik adviseer over de inrichting van uw public affairs-functie en kies samen met u de juiste tools voor uw situatie.
         </p>
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      <div class="srv-card p-8 md:p-10 rv rv-d1" style="border-radius:2px;">
-        <div style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:rgba(187,214,255,.1);border-radius:2px;margin-bottom:24px;">
-          <span class="material-symbols-outlined" style="color:#bbd6ff;font-size:22px;">policy</span>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <!-- Card 1 — slides from left -->
+      <div class="srv-card p-8 md:p-10 rv-left" style="border-radius:2px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;">
+          <div class="srv-icon">
+            <span class="material-symbols-outlined" style="color:#bbd6ff;font-size:24px;">policy</span>
+          </div>
+          <span class="srv-num">01</span>
         </div>
-        <h3 class="display font-bold text-white text-[1.25rem] mb-3">Public Affairs</h3>
+        <h3 class="display font-bold text-white text-[1.25rem]" style="margin-bottom:0;">Public Affairs</h3>
+        <div class="srv-title-line"></div>
         <div class="srv-item">
           <div class="srv-item-title">Monitoring</div>
           <div class="srv-item-desc">Ik houd u scherp op de hoogte van relevante debatten in de Tweede Kamer en de agenda van de rijksoverheid, zodat u nooit voor verrassingen komt te staan.</div>
@@ -459,11 +479,16 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
         </div>
       </div>
 
-      <div class="srv-card p-8 md:p-10 rv rv-d2" style="border-radius:2px;">
-        <div style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:rgba(187,214,255,.1);border-radius:2px;margin-bottom:24px;">
-          <span class="material-symbols-outlined" style="color:#bbd6ff;font-size:22px;">record_voice_over</span>
+      <!-- Card 2 — slides from bottom -->
+      <div class="srv-card p-8 md:p-10 rv" style="border-radius:2px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;">
+          <div class="srv-icon">
+            <span class="material-symbols-outlined" style="color:#bbd6ff;font-size:24px;">record_voice_over</span>
+          </div>
+          <span class="srv-num">02</span>
         </div>
-        <h3 class="display font-bold text-white text-[1.25rem] mb-3">Communicatie</h3>
+        <h3 class="display font-bold text-white text-[1.25rem]" style="margin-bottom:0;">Communicatie</h3>
+        <div class="srv-title-line"></div>
         <div class="srv-item">
           <div class="srv-item-title">Tekstschrijven</div>
           <div class="srv-item-desc">Een sterke boodschap verdient een goed verhaal. Ik schrijf puntige memo's, wervende brieven, speeches en position papers in de juiste toon en vorm.</div>
@@ -474,11 +499,16 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
         </div>
       </div>
 
-      <div class="srv-card p-8 md:p-10 rv rv-d3" style="border-radius:2px;">
-        <div style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:rgba(187,214,255,.1);border-radius:2px;margin-bottom:24px;">
-          <span class="material-symbols-outlined" style="color:#bbd6ff;font-size:22px;">groups</span>
+      <!-- Card 3 — slides from right -->
+      <div class="srv-card p-8 md:p-10 rv-right" style="border-radius:2px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;">
+          <div class="srv-icon">
+            <span class="material-symbols-outlined" style="color:#bbd6ff;font-size:24px;">groups</span>
+          </div>
+          <span class="srv-num">03</span>
         </div>
-        <h3 class="display font-bold text-white text-[1.25rem] mb-3">Stakeholder Management</h3>
+        <h3 class="display font-bold text-white text-[1.25rem]" style="margin-bottom:0;">Stakeholder Management</h3>
+        <div class="srv-title-line"></div>
         <div class="srv-item">
           <div class="srv-item-title">Dialoog</div>
           <div class="srv-item-desc">Ik organiseer gerichte gesprekken met politici, ambtenaren, brancheorganisaties en het bredere publiek, zodat uw verhaal sterker en getoetst wordt.</div>
@@ -490,9 +520,9 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
       </div>
     </div>
 
-    <div class="rv rv-d4" style="margin-top:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;">
-      <p style="color:rgba(255,255,255,.32);font-size:.8125rem;">Alle diensten worden op maat ingezet — afhankelijk van uw situatie en doelstellingen.</p>
-      <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:#3f608a;color:#f6f7ff;font-size:.8125rem;font-weight:600;border-radius:2px;text-decoration:none;">
+    <div class="rv" style="margin-top:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;">
+      <p style="color:rgba(255,255,255,.38);font-size:.8125rem;">Alle diensten worden op maat ingezet — afhankelijk van uw situatie en doelstellingen.</p>
+      <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:#3f608a;color:#f6f7ff;font-size:.8125rem;font-weight:600;border-radius:2px;text-decoration:none;transition:opacity .2s;" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">
         Bespreek uw vraagstuk <span class="material-symbols-outlined" style="font-size:15px;">arrow_forward</span>
       </a>
     </div>
@@ -516,7 +546,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
             </p>
             <!-- Progress dots labels -->
             <div style="display:flex;flex-direction:column;gap:6px;padding-left:16px;border-left:2px solid rgba(172,179,185,.3);position:relative;" id="aanpak-progress">
-              <div style="position:absolute;left:-1px;top:0;width:2px;height:0%;background:linear-gradient(to bottom,#3f608a,#28456e);transition:height .4s ease;" id="aanpak-bar-fill"></div>
+              <div style="position:absolute;left:-1px;top:0;width:2px;height:0%;background:linear-gradient(to bottom,#3f608a,#2e5278);transition:height .4s ease;" id="aanpak-bar-fill"></div>
               <div class="aanpak-dot-label" data-i="0" style="color:#3f608a;">Analyse &amp; Context</div>
               <div class="aanpak-dot-label" data-i="1" style="color:rgba(45,51,57,.3);">Strategie &amp; Boodschap</div>
               <div class="aanpak-dot-label" data-i="2" style="color:rgba(45,51,57,.3);">Uitvoering &amp; Netwerk</div>
@@ -585,14 +615,14 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
             </div>
           </div>
         </div>
-        <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:linear-gradient(135deg,#3f608a,#28456e);color:#f6f7ff;font-size:.875rem;font-weight:600;border-radius:2px;text-decoration:none;" class="es rv rv-d3">
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:linear-gradient(135deg,#3f608a,#2e5278);color:#f6f7ff;font-size:.875rem;font-weight:600;border-radius:2px;text-decoration:none;" class="es rv rv-d3">
           Informeer vrijblijvend naar de mogelijkheden
           <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
         </a>
       </div>
 
       <!-- Dark accent card -->
-      <div style="border-radius:2px;padding:48px 40px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;background:linear-gradient(160deg,#1e3a5c,#152d4a);" class="es rv rv-d1">
+      <div style="border-radius:2px;padding:48px 40px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;background:linear-gradient(160deg,#244969,#244969);" class="es rv rv-d1">
         <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;"></div>
         <div style="position:absolute;width:280px;height:280px;border-radius:50%;border:1px solid rgba(255,255,255,.06);bottom:-80px;right:-80px;pointer-events:none;"></div>
         <div style="position:absolute;width:160px;height:160px;border-radius:50%;border:1px solid rgba(255,255,255,.04);top:20px;left:-40px;pointer-events:none;"></div>
@@ -764,7 +794,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
       </div>
 
       <!-- CTA panel -->
-      <div style="border-radius:2px;padding:40px 36px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;background:linear-gradient(135deg,#3f608a 0%,#28456e 100%);" class="es rv rv-d2">
+      <div style="border-radius:2px;padding:40px 36px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;background:linear-gradient(135deg,#3f608a 0%,#2e5278 100%);" class="es rv rv-d2">
         <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;"></div>
         <div style="position:relative;">
           <h3 class="display font-bold text-white leading-tight" style="font-size:1.5rem;margin-bottom:12px;">Plan een vrijblijvend gesprek</h3>
@@ -786,36 +816,31 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
 
 
 <!-- ════════ FOOTER ════════ -->
-<footer style="background:#152d4a;padding:60px 0 32px;">
+<footer style="background:#244969;padding:36px 0 20px;">
   <div class="max-w-7xl mx-auto px-6 md:px-10">
-    <div style="display:grid;grid-template-columns:1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08);" class="md:grid-cols-3">
-      <div>
-        <div class="display font-bold text-white" style="font-size:1.0625rem;">Marco Kortleve</div>
-        <div style="font-size:.5875rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#7ca8d4;margin-top:3px;margin-bottom:12px;">Public Affairs Advisor</div>
-        <p style="color:rgba(255,255,255,.32);font-size:.8125rem;line-height:1.7;max-width:22rem;">Meer dan 20 jaar ervaring in politiek, overheid en bedrijfsleven. Gevestigd in Den Haag.</p>
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:24px 40px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.08);">
+      <!-- Branding -->
+      <div style="min-width:180px;">
+        <div class="display font-bold text-white" style="font-size:.9375rem;">Marco Kortleve</div>
+        <div style="font-size:.5rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#7ca8d4;margin-top:2px;">Public Affairs Advisor · Den Haag</div>
       </div>
-      <div>
-        <div style="font-size:.5875rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:14px;">Navigatie</div>
-        <div style="display:flex;flex-direction:column;gap:9px;">
-          <a href="#wie-ik-ben" style="font-size:.8125rem;color:rgba(255,255,255,.45);text-decoration:none;">Over</a>
-          <a href="#diensten"   style="font-size:.8125rem;color:rgba(255,255,255,.45);text-decoration:none;">Diensten</a>
-          <a href="#aanpak"     style="font-size:.8125rem;color:rgba(255,255,255,.45);text-decoration:none;">Aanpak</a>
-          <a href="#interim"    style="font-size:.8125rem;color:rgba(255,255,255,.45);text-decoration:none;">Interim</a>
-          <a href="#klanten"    style="font-size:.8125rem;color:rgba(255,255,255,.45);text-decoration:none;">Klanten</a>
-          <a href="#contact"    style="font-size:.8125rem;color:rgba(255,255,255,.45);text-decoration:none;">Contact</a>
-        </div>
+      <!-- Nav links horizontal -->
+      <div style="display:flex;flex-wrap:wrap;gap:6px 20px;align-items:center;">
+        <a href="#wie-ik-ben" style="font-size:.75rem;color:rgba(255,255,255,.45);text-decoration:none;">Over</a>
+        <a href="#diensten"   style="font-size:.75rem;color:rgba(255,255,255,.45);text-decoration:none;">Diensten</a>
+        <a href="#aanpak"     style="font-size:.75rem;color:rgba(255,255,255,.45);text-decoration:none;">Aanpak</a>
+        <a href="#interim"    style="font-size:.75rem;color:rgba(255,255,255,.45);text-decoration:none;">Interim</a>
+        <a href="#klanten"    style="font-size:.75rem;color:rgba(255,255,255,.45);text-decoration:none;">Klanten</a>
+        <a href="#contact"    style="font-size:.75rem;color:rgba(255,255,255,.45);text-decoration:none;">Contact</a>
       </div>
-      <div>
-        <div style="font-size:.5875rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:14px;">Contact</div>
-        <div style="display:flex;flex-direction:column;gap:9px;">
-          <a href="mailto:marco@kortleveadvies.nl" style="font-size:.8125rem;color:rgba(255,255,255,.45);text-decoration:none;">marco@kortleveadvies.nl</a>
-          <div style="font-size:.8125rem;color:rgba(255,255,255,.3);">Den Haag, Nederland</div>
-        </div>
-        <a href="#contact" style="display:inline-flex;align-items:center;gap:6px;margin-top:16px;padding:10px 18px;background:#3f608a;color:#f6f7ff;font-size:.75rem;font-weight:700;border-radius:2px;text-decoration:none;">Contact opnemen</a>
+      <!-- Contact -->
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        <a href="mailto:marco@kortleveadvies.nl" style="font-size:.75rem;color:rgba(255,255,255,.45);text-decoration:none;">marco@kortleveadvies.nl</a>
+        <a href="https://www.linkedin.com/in/marcokortleve/" target="_blank" rel="noopener noreferrer" style="font-size:.75rem;color:rgba(255,255,255,.45);text-decoration:none;">LinkedIn</a>
       </div>
     </div>
-    <div style="padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;">
-      <p style="font-size:.6875rem;color:rgba(255,255,255,.2);">© 2026 Marco Kortleve Public Affairs. Alle rechten voorbehouden.</p>
+    <div style="padding-top:16px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;">
+      <p style="font-size:.625rem;color:rgba(255,255,255,.2);">© 2026 Marco Kortleve Public Affairs. Alle rechten voorbehouden.</p>
       <div style="display:flex;gap:20px;">
         <a href="#" style="font-size:.6875rem;color:rgba(255,255,255,.2);text-decoration:none;">Privacy Policy</a>
         <a href="#" style="font-size:.6875rem;color:rgba(255,255,255,.2);text-decoration:none;">Algemene Voorwaarden</a>
@@ -853,7 +878,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
       <a href="#klanten"    class="drawer-lnk" style="display:flex;align-items:center;gap:12px;padding:12px 14px;color:#596066;font-size:.875rem;font-weight:600;border-radius:2px;text-decoration:none;"><span class="material-symbols-outlined" style="font-size:18px;color:#757b82;">groups</span>Klanten</a>
     </nav>
     <div style="margin-top:auto;">
-      <a href="#contact" class="drawer-lnk" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;background:linear-gradient(135deg,#3f608a,#28456e);color:#f6f7ff;font-size:.875rem;font-weight:700;border-radius:2px;text-decoration:none;">
+      <a href="#contact" class="drawer-lnk" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;background:linear-gradient(135deg,#3f608a,#2e5278);color:#f6f7ff;font-size:.875rem;font-weight:700;border-radius:2px;text-decoration:none;">
         <span class="material-symbols-outlined" style="font-size:16px;">mail</span>Contact opnemen
       </a>
     </div>
@@ -912,7 +937,7 @@ body{background:#f9f9fc;color:#2d3339;font-family:'Manrope',system-ui,sans-serif
 
   /* Global scroll reveal */
   (function(){
-    const els=document.querySelectorAll('.rv,.rv-scale');
+    const els=document.querySelectorAll('.rv,.rv-scale,.rv-left,.rv-right');
     if(!els.length)return;
     const obs=new IntersectionObserver(entries=>{
       entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}});
